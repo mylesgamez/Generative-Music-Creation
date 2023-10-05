@@ -24,21 +24,21 @@ export default function Page() {
 
   return (
     <div className={styles.container}>
-      <h1>AI Music Generator</h1>
+      <h1 className={styles.title}>AI Music Generator</h1>
       <input
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
         placeholder="Enter your music instruction..."
+        className={styles.input}
       />
-      <button onClick={handleGenerateMusic} disabled={loading}>
+      <button onClick={handleGenerateMusic} disabled={loading} className={styles.button}>
         Generate Music
       </button>
 
       {musicData && (
         <>
-          {/* You'll need a way to play the music. This assumes MuseNet provides a playable format. */}
-          <audio controls src={musicData} />
-          <a href={musicData} download>Download Music</a>
+          <audio className={styles.audioPlayer} controls src={musicData} />
+          <a className={styles.link} href={musicData} download>Download Music</a>
         </>
       )}
     </div>
